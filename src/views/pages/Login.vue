@@ -9,7 +9,7 @@
                 <CForm @submit.prevent="login()">
                   <h1>Login</h1>
                   <p class="text-muted">Kirish</p>
-                  <CInput placeholder="9989*******" v-model="form.phone_number">
+                  <CInput placeholder="9989*******" v-model="form.email">
                     <template #prepend-content>
                       <CIcon name="cil-user" />
                     </template>
@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       form: {
-        phone_number: "",
+        email: "",
         password: "",
       },
     };
