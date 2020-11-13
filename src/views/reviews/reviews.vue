@@ -75,7 +75,7 @@
     <Table
       :button="bshow"
       :theads="thead"
-      :tbodies="menuSliders"
+      :tbodies="review"
       :objects="obj"
       @getItemEdit="getEdit"
     />
@@ -169,8 +169,8 @@ export default {
       description: "",
       is_active:"",
       form: "",
-      thead: ["Title", "Image", "Description", "Amallar"],
-      obj: ["title", "image", "description","is_active"],
+      thead: ["title", "comment","created_at", "is_active", "rate", "response","Amallar"],
+      obj: ["title", "comment","created_at", "is_active", "rate", "response",],
     };
   },
   methods: {
@@ -194,7 +194,7 @@ export default {
     },
     async add() {
       await axios
-        .post("menu/admin/offer/", this.form)
+        .post("reviews/admin/", this.form)
         .then((res) => {
           this.$toast.success("Muvaffaqiyatli bajarildi.");
           console.log(res);
@@ -205,14 +205,13 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["menuSliders"]),
+    ...mapGetters(["review"]),
   },
   mounted() {
     // this.getAmenties();
   },
   created() {
-    this.$store.dispatch("getmenuoffers");
-    console.log("Menu offer",this.menuSliders);
+    this.$store.dispatch("getReviews");
   },
 };
 </script>

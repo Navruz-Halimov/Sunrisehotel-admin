@@ -259,26 +259,34 @@
       </td>
     </tr>
   </tbody>
-  <tbody v-else-if="this.$route.path === '/discount'">
+  <tbody v-else-if="this.$route.path === '/reviews'">
     <tr v-for="(tbody, index) of tbodies" :key="index">
       <td v-for="(obj, i) of objs" :key="i">
-        <span v-if="obj === 'end_date'">{{ tbody.end_date }}</span>
+        <span v-if="obj === 'created_at'">{{ tbody.created_at }}</span>
         <span
-          v-else-if="obj === 'start_date'"
-          v-html="tbody.start_date"
+          v-else-if="obj === 'rate'"
+          v-html="tbody.rate"
         ></span>
         <span
           v-else-if="obj === 'is_active'"
           v-html="tbody.is_active"
         ></span>
-        <span
-          v-else-if="obj === 'percentage'"
-          v-html="tbody.percentage"
+           <span
+          v-else-if="obj === 'comment'"
+          v-html="tbody.comment"
         ></span>
          <span
-          v-else-if="obj === 'room_group'"
-          v-html="tbody.room_group"
+          v-else-if="obj === 'title'"
+          v-html="tbody.title"
         ></span>
+         <span
+          v-else-if="obj === 'trip_type'"
+          v-html="tbody.trip_type"
+        ></span>
+        <span
+          v-else-if="obj === 'user'"
+          
+        >{{tbody.user.firstname}} {{tbody.user.lastname}}</span>
       </td>
       <td class="text-centers">
         <TButton :id="tbody.id" :show="button" @editModalParent="getEditItem" />

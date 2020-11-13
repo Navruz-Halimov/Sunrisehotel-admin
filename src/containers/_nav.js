@@ -16,6 +16,7 @@ export default [
         _name: 'CSidebarNavItem',
         name: 'Amenties',
         to: '/amenty',
+        icon: 'cil-star',
 
       },
       {
@@ -36,6 +37,7 @@ export default [
         _name: 'CSidebarNavItem',
         name: 'Menu',
         to: '/menu',
+        icon: 'cil-star',
 
       },
       {
@@ -68,18 +70,20 @@ export default [
         _name: 'CSidebarNavItem',
         name: 'Reviews',
         to: '/reviews',
+        icon: 'cil-star',
 
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Rooms',
         to: '/room',
-        icon:'cis-building',
+        icon: 'cil-star',
       },
       {
         _name: 'CSidebarNavItem',
         name: 'Discount',
         to: '/discount',
+        icon: 'cil-star',
       },
       {
         _name: 'CSidebarNavTitle',
