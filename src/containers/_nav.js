@@ -7,10 +7,6 @@ export default [
         name: 'Asosiy panel',
         to: '/dashboard',
         icon: 'cil-speedometer',
-        badge: {
-          color: 'primary',
-          text: 'NEW'
-        }
       },
       {
         _name: 'CSidebarNavItem',

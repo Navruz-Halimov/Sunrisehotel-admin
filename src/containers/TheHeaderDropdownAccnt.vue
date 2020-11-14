@@ -9,16 +9,12 @@
       <CHeaderNavLink>
         <div class="c-avatar">
           <img
-            src="img/avatars/6.jpg"
+            src="./../assets/image.png"
             class="c-avatar-img "
           />
         </div>
       </CHeaderNavLink>
     </template>
-    <CDropdownItem>
-      <CIcon name="cil-comment-square" /> Comments
-      <CBadge color="warning" class="mfs-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
     <CDropdownHeader
       tag="div"
       class="text-center"
@@ -26,21 +22,6 @@
     >
       <strong>Settings</strong>
     </CDropdownHeader>
-    <CDropdownItem>
-      <CIcon name="cil-user" /> Profile
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-settings" /> Settings
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-dollar" /> Payments
-      <CBadge color="secondary" class="mfs-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownItem>
-      <CIcon name="cil-file" /> Projects
-      <CBadge color="primary" class="mfs-auto">{{ itemsCount }}</CBadge>
-    </CDropdownItem>
-    <CDropdownDivider/>
     <CDropdownItem @click="logout()">
       <CIcon name="cil-lock-locked" /> Chiqish
     </CDropdownItem>
