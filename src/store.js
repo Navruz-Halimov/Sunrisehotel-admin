@@ -7,6 +7,8 @@ import axios from "axios";
 const state = {
   sidebarShow: "responsive",
   sidebarMinimize: false,
+  showDeleteModal: false,
+  showEditModal: false,
   baseURL: "http://188.225.83.193/",
   token: localStorage.getItem("token") || "",
   amenties: [],
@@ -28,6 +30,8 @@ const state = {
   deleteModalId: 0,
   editModalId: 0,
   editItemId: 0,
+  showLoader: false,
+  editLoader: false,
   config: {
     selector: "textarea#full-featured-non-premium",
     plugins:
@@ -112,6 +116,9 @@ const mutations = {
   setSingleItemEdit(state, payload) {
     state.singleItemEdit = payload;
   },
+  setShowLoader(state, payload) {
+    state.showLoader = payload;
+  },
   setRoom(state, payload) {
     state.rooms = payload;
   },
@@ -185,12 +192,12 @@ const actions = {
       });
   },
   async edit({ commit }, payload) {
-    // commit('setEditLoader', true);
+    commit('setEditLoader', true);
     await axios
       .get(payload)
       .then((res) => {
-        // console.log(res)
-        // commit('setEditLoader', false);
+        console.log(res)
+        commit('setEditLoader', false);
         commit("setSingleItemEdit", res.data);
       })
       .catch(() => {

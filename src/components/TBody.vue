@@ -300,11 +300,13 @@
 import TButton from "./TButton";
 import DModal from "@/components/DModal";
 import axios from "axios";
+import Loader from './Loader';
 export default {
   props: ["tbodies", "button", "objs"],
   components: {
     TButton,
     DModal,
+       Loader,
   },
   data() {
     return {

@@ -53,8 +53,15 @@
           </CRow>
           <div slot="footer">
             <div slot="footer-wrapper">
-              <CButton color="success" class="float-right" @click="add">
-                <span>Saqlash</span>
+              <CButton
+                color="success"
+                class="float-right"
+                @click="add()"
+                :disabled="loader"
+              >
+                <CSpinner v-if="loader" color="warning" size="sm" />
+
+                <span v-else>Saqlash</span>
               </CButton>
             </div>
           </div>
@@ -113,8 +120,14 @@
       </CRow>
       <div slot="footer">
         <div slot="footer-wrapper">
-          <CButton color="success" class="float-right" @click="update()">
-            <span>Saqlash</span>
+          <CButton
+            color="success"
+            class="float-right"
+            @click="update()"
+            :disabled="loader"
+          >
+            <CSpinner v-if="loader" color="warning" size="sm" />
+            <span v-else>Saqlash</span>
           </CButton>
         </div>
       </div>
@@ -128,14 +141,17 @@ import { mapGetters } from "vuex";
 import Table from "@/components/Table";
 import axios from "axios";
 import Editor from "@tinymce/tinymce-vue";
+import Loader from "../../components/Loader";
 
 export default {
   components: {
     Table,
     editor: Editor,
+    Loader,
   },
   data() {
     return {
+      loader: false,
       amenty: [],
       bshow: { warning: true, delete: true },
       imgSet: false,
@@ -199,6 +215,7 @@ export default {
       }
     },
     async update() {
+      this.loader = true;
       let form = new FormData();
       console.log(this.amenty);
       form.append("title", this.amenty.title);
@@ -219,10 +236,16 @@ export default {
     ...mapGetters(["amenties"]),
   },
   mounted() {
-    // this.getAmenties();
+    window.addEventListener("load", function() {
+      this.loader = false;
+    });
   },
   created() {
-    this.$store.dispatch("getamenties");
+      this.$store.commit('setShowLoader',true);
+    this.$store.dispatch("getamenties")
+     .then(() => {
+            this.$store.commit('setShowLoader',false);
+        })
   },
 };
 </script>

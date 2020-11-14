@@ -40,6 +40,7 @@
     "@coreui/vue-chartjs": "^1.0.5",
     "@tinymce/tinymce-vue": "^3.2.2",
     "axios": "^0.20.0-0",
+    "epic-spinners": "^1.1.0",
     "vue": "~2.6.12",
     "vue-router": "~3.4.3",
     "vue-toastification": "^1.7.8",
